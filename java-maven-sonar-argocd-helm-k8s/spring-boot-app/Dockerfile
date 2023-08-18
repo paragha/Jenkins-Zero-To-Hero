@@ -8,6 +8,8 @@ ARG artifact=target/spring-boot-web.jar
 WORKDIR /opt/app
 
 COPY ${artifact} app.jar
+RUN mvn clean install
+
 
 # This should not be changed
 ENTRYPOINT ["java","-jar","app.jar"]
